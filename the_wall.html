@@ -23,22 +23,25 @@
             <button id="post_btn">Add Post</button>
         </div>
         <div id="all_comments">
-            <ul class="post_wrapper hidden">
-                <h1 class="user_name"></h1>
+            <div class="post_wrapper hidden">
+                <h1 class="user_name">Joe Smith</h1>
                 <p></p>
                 <button class="like_comment">1</button>
                 <button class="reply">Write a Comment</button>
                 <button class="delete_comment"></button>
-                <div class="wrapper"></div>
-                <li class="reply_wrapper hidden">
-                    <h1 class="user_name">Harold Nocos</h1>
+                <div class="reply_wrapper hidden">
+                    <h1 class="user_name">Joe Smith</h1>
                     <p></p>
                     <button class="like_comment"></button>
                     <button class="reply">Write a Comment</button>
                     <button class="delete_comment"></button>
-                </li>
-            </ul>
-
+                </div>
+            </div>
+            <div class="wrapper hidden">
+                <textarea class="reply_comment"></textarea>
+                <button class="add_reply">Add</button>
+                <button class="cancel_reply">Cancel</button>
+            </div>
         </div>
     </div>
 </body>

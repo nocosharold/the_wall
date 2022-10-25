@@ -256,13 +256,13 @@ nav a {
   list-style-type: none;
   padding: 0 0 24px;
 }
-#all_comments .post_wrapper li:nth-child(6) {
+#all_comments .post_wrapper li:nth-child(7) {
   margin-top: 16px;
 }
 #all_comments .post_wrapper .wrapper {
   margin-bottom: 16px;
 }
-#all_comments .post_wrapper .wrapper .reply_comment {
+#all_comments .post_wrapper .wrapper .add_reply_comment {
   border-radius: 10px;
   border-right: 4px solid transparent;
   border: none;

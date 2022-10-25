@@ -3,31 +3,25 @@ document.addEventListener("DOMContentLoaded", () => {
     const post_btn = document.getElementById('post_btn');
     const all_comments = document.getElementById('all_comments');
 
-    /* Adding an event listener to the post button. When the button is clicked, the addComment function
+    /* When the button is clicked, the addComment function
     is called. */
     post_btn.addEventListener('click', function (event) {
         addComment(event);
     });
 
+    /*  When the event is triggered, it will clone the wrapper div and add it to the parent div. 
+    If the event target has the class of add_reply, then it will call the addReply function. 
+    It will increment the value of the like button and delete the comment. */
     all_comments.addEventListener('click', function (event) {
         /* This is the code that is executed when the reply button is clicked. It creates a text area
         and a button to add the reply. It also creates a cancel button to cancel the reply. */
-        // TODO REFACTOR
         if(hasClass(event.target, 'reply')) {
             const parent_div = event.target.parentElement;
-            const wrap_div = document.createElement('div');
-            const text_area = document.createElement('textarea');
-            const add_button = document.createElement('button');
-            const cancel_btn = document.createElement('button');
-            
-            wrap_div.className = 'wrapper';
-            text_area.setAttribute("class", "reply_comment");
-            add_button.className = 'add_reply';
-            add_button.innerHTML = 'Add';
-            cancel_btn.innerHTML = 'Cancel';
-            cancel_btn.className='cancel_reply';
-            wrap_div.append(text_area, add_button, cancel_btn);
-            parent_div.appendChild(wrap_div);
+            const wrapper = document.querySelector(".wrapper.hidden").cloneNode(true);
+
+            wrapper.setAttribute("class", "wrapper");
+            wrapper.querySelector(".reply_comment").setAttribute("class", "add_reply_comment");
+            parent_div.appendChild(wrapper);
 
             setOnLocalStorage();
         } 
@@ -46,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
         /* This is the code that is executed when the cancel reply button is clicked. It removes the
         text area and the buttons. */
         else if(hasClass(event.target, 'cancel_reply')) {
+            event.target.parentElement.remove();
             event.target.parentElement.innerHTML = '';
             setOnLocalStorage();
         } 
@@ -70,11 +65,12 @@ function addComment() {
         const comment_container = document.getElementById('all_comments');
         const post_wrapper = document.querySelector(".post_wrapper.hidden").cloneNode(true);
         const user_name_text = document.getElementById('profile_name').textContent;
-        const new_post_text = document.querySelector('.new_post').value;
+        const new_post_text = document.querySelector('.new_post');
 
         post_wrapper.setAttribute("class", "post_wrapper");
         post_wrapper.querySelector(".user_name").innerHTML = user_name_text;
-        post_wrapper.querySelector("p").innerHTML = new_post_text;
+        post_wrapper.querySelector("p").innerHTML = new_post_text.value;
+        new_post_text.value = "";
         comment_container.appendChild(post_wrapper);
         
         setOnLocalStorage();
@@ -88,11 +84,11 @@ function addComment() {
 function addReply(event) {
     /* This is the code that is executed when the add reply button is clicked. It adds the reply to
     the comment. */
-    if(!(document.querySelector(".reply_comment").value.trim().length === 0)) {
+    if(!(document.querySelector(".add_reply_comment").value.trim().length === 0)) {
         const post_container = event.target.closest(".post_wrapper");
         const reply_wrapper = document.querySelector(".reply_wrapper.hidden").cloneNode(true);
         const user_name_text = document.getElementById('profile_name').textContent;
-        const reply_comment_text = document.querySelector('.reply_comment').value;
+        const reply_comment_text = document.querySelector('.add_reply_comment').value;
 
         reply_wrapper.setAttribute("class", "reply_wrapper");
         reply_wrapper.querySelector(".user_name").innerHTML = user_name_text;

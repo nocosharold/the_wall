@@ -56,6 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     document.querySelectorAll(".form_input").forEach(inputElement => {
+        /* This will validate fields on blur event */
         inputElement.addEventListener("blur", event => {
             /* Checking if the value of the input element with the id "first_name" or "last_name" is
             not equal to the regular expression "name_format". If it is not equal, it will set an
@@ -102,7 +103,6 @@ document.addEventListener("DOMContentLoaded", () => {
             else{
                 event.target.classList.remove("required");
             }
-
             /* Checking if there are any errors in the form. If there are no errors, it will enable the
            create account button. */
             if(document.querySelectorAll(".form_input_error").length == 0 && document.querySelectorAll(".required").length == 0){
@@ -116,12 +116,12 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
+        /* Clearing the error message when the user types in the input element. */
         inputElement.addEventListener("input", function(){
             clearInputError(inputElement);
         })
     });
 });
-
 
 /**
  * It takes a form element, a type of message, and a message, and then sets the message on the form
@@ -137,7 +137,6 @@ function setFormMessage(formElement, type, message){
     messageElement.classList.remove("form_message_success", "form_message_error");
     messageElement.classList.add(`form_message_${type}`);
 }
-
 
 /**
  * It adds the class "form_input_error" to the input element and sets the text of the error message
