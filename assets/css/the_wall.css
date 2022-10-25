@@ -237,6 +237,9 @@ nav a {
   padding: 16px;
   position: relative;
 }
+#all_comments .post_wrapper.hidden {
+  display: none;
+}
 #all_comments .post_wrapper .user_name {
   font: 16px/19px 'OpenSans-SemiBold', tahoma, verdana, arial, sans-serif;
   margin-bottom: 8px ;
@@ -251,7 +254,6 @@ nav a {
 #all_comments .post_wrapper .reply_wrapper {
   border-radius: 10px;
   list-style-type: none;
-  margin-left: 16px;
   padding: 0 0 24px;
 }
 #all_comments .post_wrapper li:nth-child(6) {

@@ -57,37 +57,61 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelectorAll(".form_input").forEach(inputElement => {
         inputElement.addEventListener("blur", event => {
+            /* Checking if the value of the input element with the id "first_name" or "last_name" is
+            not equal to the regular expression "name_format". If it is not equal, it will set an
+            error message on the input element and add the class "required" to the input element. */
             if(event.target.id === "first_name" && REGULAR_EXPRESSIONS.name_format.test(event.target.value) || event.target.id === "last_name" && REGULAR_EXPRESSIONS.name_format.test(event.target.value)) {
                 setInputError(inputElement, "Special Characters and numbers are not allowed.");
                 event.target.classList.add("required");
-            }else{
+            }
+            /* Removing the class "required" from the input element. */
+            else{
                 event.target.classList.remove("required");
             }
+            /* Checking if the value of the input element with the id "signup_username" is greater than
+            0 and less than 6. If it is, it will set an error message on the input element and add
+            the class "required" to the input element. */
             if(event.target.id === "signup_username" && event.target.value.length > 0 && event.target.value.length < 6) {
                 setInputError(inputElement, "Username must be at least 6 characters in length");
                 event.target.classList.add("required");
-            }else{
+            }
+            /* Removing the class "required" from the input element. */
+            else{
                 event.target.classList.remove("required");
             }
+            /* Checking if the value of the input element with the id "signup_password" is not equal to
+            the regular expression "password_format". If it is not equal, it will set an error
+            message on the input element and add the class "required" to the input element. */
             if(event.target.id === "signup_password" && !(REGULAR_EXPRESSIONS.password_format.test(event.target.value))) {
                 setInputError(inputElement, "Password must be at least 6 characters and contains an uppercase letter and a number.");
                 event.target.classList.add("required");
-            }else{
+            }
+            /* Removing the class "required" from the input element. */
+            else{
                 event.target.classList.remove("required");
             }
+            /* Checking if the value of the input element with the id "signup_confirm_password" is not
+            equal to the value of the input element with the id "signup_password". If it is not
+            equal, it will set an error message on the input element and add the class "required" to
+            the input element. */
             if(event.target.id === "signup_confirm_password" && document.getElementById("signup_confirm_password").value != document.getElementById("signup_password").value) {
                 setInputError(inputElement, "Password doesn't match");
                 event.target.classList.add("required");
-            }else{
+            }
+            /* Removing the class "required" from the input element. */
+            else{
                 event.target.classList.remove("required");
             }
 
+            /* Checking if there are any errors in the form. If there are no errors, it will enable the
+           create account button. */
             if(document.querySelectorAll(".form_input_error").length == 0 && document.querySelectorAll(".required").length == 0){
                 create_account_btn.removeAttribute("disabled");
                 localStorage.setItem('first_name', document.getElementById('first_name').value);
                 localStorage.setItem('last_name', document.getElementById('last_name').value);
-
-            }else{
+            }
+            /* Disabling the create account button if there are any errors in the form. */
+            else{
                 create_account_btn.setAttribute("disabled", "true");
             }
         });
