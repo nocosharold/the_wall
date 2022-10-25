@@ -1,0 +1,199 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'OpenSans-Regular';
+    src: url('../fonts/OpenSans-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'OpenSans-SemiBold';
+    src: url('../fonts/OpenSans-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: 'OpenSans-Bold';
+    src: url('../fonts/OpenSans-Bold.ttf');
+}
+
+@bg_the_wall: #F8F8F8;
+@the_wall_white: #FFF;
+@the_wall_blue: #338CFB;
+@the_wall_black: #222222;
+@the_wall_gray: #3E3E3E;
+@the_wall_red: #FF0033;
+@the_wall_red_btn: #FE1846;
+
+
+.hidden {
+    display: none;
+}
+
+body{
+    background-color: @the_wall_gray;
+}
+
+main{
+    #homepage{
+        background-color: @the_wall_white;
+        height: 100vh;
+        padding-top: 137px;
+        text-align: center;
+    
+        #the_wall_logo {
+            img {
+                margin-bottom: 2px;
+            }
+        }
+    
+        h1 {
+            color: @the_wall_gray;
+            font: 96px/96px 'OpenSans-Bold', tahoma, verdana, arial, sans-serif;
+            margin-bottom: 64px;
+        }
+    
+        h2 {
+            color: @the_wall_black;
+            font: 32px/32px 'OpenSans-Regular', tahoma, verdana, arial, sans-serif;
+            margin-bottom: 75px;
+        }
+    
+        .primary_btn_lg {
+            margin-bottom: 76px;
+        }
+    }
+}
+
+.form_input_error{
+    border: 1px solid @the_wall_red !important;
+}
+
+.form_input_error_message,
+.form_message_error{
+    color: @the_wall_red;
+}
+
+.form_message_error{
+    margin-bottom: 12px;
+}
+
+.wrapper{
+    .form {
+        background-color: @the_wall_white;
+        border-radius: 40px;
+        margin: 80px auto;
+        max-width: 600px;
+        min-height: 648px;
+        padding: 40px 80px;
+        position: relative;
+        .close_form_btn {
+            position: absolute;
+            right: 40px;
+            top: 40px;
+        }
+
+        .form_title {
+            font: 24px/32px 'OpenSans-Bold', tahoma, verdana, arial, sans-serif;
+            margin-bottom: 40px;
+        }
+        .form_input{
+            border-radius: 20px;
+            border: 1px solid @the_wall_gray;
+            color: @the_wall_black;
+            font: 16px/24px 'OpenSans-Regular', tahoma, verdana, arial, sans-serif;
+            height: 48px;
+            margin-bottom: 12px;
+            padding: 0 16px;
+            width: 100%;
+        }
+        .form_input_error_message{
+            margin-bottom: 12px;
+        }
+    }
+}
+
+.form_footer{
+    transform: translateY(121px);
+}
+
+.primary_btn {
+    background-color: @the_wall_blue;
+    border-radius: 40px;
+    border: none;
+    color: @the_wall_white;
+    cursor: pointer;
+    font: 24px/54px 'OpenSans-SemiBold', tahoma, verdana, arial, sans-serif;
+    margin-bottom: 77px;
+    min-width: 100%;
+    transition: opacity 0.21s ease-in-out;
+    &:hover {
+        opacity: 0.8;
+    }
+    &:disabled{
+        background-color: @the_wall_gray;
+        &:hover{
+            cursor: default;
+            opacity: 1;
+        }
+    }
+}
+
+.secondary_btn {
+    background-color: transparent;
+    border-radius: 40px;
+    border: 1px solid @the_wall_gray;
+    color: @the_wall_blue;
+    cursor: pointer;
+    display: block;
+    font: 24px/54px 'OpenSans-Regular', tahoma, verdana, arial, sans-serif;
+    min-width: 100%;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.21s ease-in-out;
+    &:hover {
+        background-color: rgba(51, 140, 251, 0.1);
+        border: 1px solid @the_wall_gray;
+    }
+}
+
+.primary_btn_lg {
+    background-color: @the_wall_blue;
+    border-radius: 40px;
+    border: none;
+    color: @the_wall_white;
+    cursor: pointer;
+    font: 24px/62px 'OpenSans-SemiBold', tahoma, verdana, arial, sans-serif;
+    min-width: 470px;
+    transition: opacity 0.21s  ease-in-out;
+    &:hover{
+        opacity: 0.8;
+    }
+}
+
+.secondary_btn_lg{
+    background-color: transparent;
+    border-radius: 40px;
+    border: 1px solid @the_wall_gray;
+    color: @the_wall_blue;
+    font: 24px/62px 'OpenSans-SemiBold', tahoma, verdana, arial, sans-serif;
+    min-width: 470px;
+    transition: all 0.21s ease-in-out;
+    cursor: pointer;
+    &:hover {
+        background-color: rgba(51, 140, 251, 0.1);
+        border: 1px solid @the_wall_gray;
+    }
+}
+
+.account_text{
+    font: 24px/24px 'OpenSans-SemiBold', tahoma, verdana, arial, sans-serif;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.close_form_btn{
+    content: url(../img/close_icon.svg);
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wall Challenge</title>
+    <link rel="shortcut icon" href="/assets/img/the_wall.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <script src="/assets/js/index.js"></script>
+    <script src="/assets/js/constants.js"></script>
+</head>
+<body>
+    <main>
+        <div id="homepage">
+            <a href="/" id="the_wall_logo"><img src="./assets/img/the_wall.svg" alt="The Wall Logo"></a>
+            <h1>THE WALL</h1>
+            <h2>Where you can share your thoughts to the rest of the world.</h2>
+            <button class="primary_btn_lg" id="show_signup_btn" type="button">Sign up</button>
+            <p class="account_text">Already have an account?</p>
+            <button class="secondary_btn_lg" id="show_login_btn" type="button">Log in</button>
+        </div>
+
+        <!-- Login -->
+        <div class="wrapper">
+            <form class="form hidden" id="login">
+                <a class="close_form_btn" href="./index.html">X</a>
+                <h1 class="form_title">Sign in to The Wall</h1>
+                <div class="form_input_group">
+                    <input type="text" id="login_username" class="form_input" name="login_username" placeholder="Username *">
+                </div>
+                <div class="form_input_group">
+                    <input type="password" id="login_password" class="form_input" name="login_password" placeholder="Password *">
+                </div>
+                <div class="form_message form_message_error"></div>
+                <button class="form_btn primary_btn" type="submit">Continue</button>
+                
+                <div class="form_footer">
+                    <p class="account_text">Don't have an account?</p>
+                    <a class="form_link secondary_btn" href="./" id="link_create_account">Create account</a>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Create Account -->
+        <div class="wrapper">
+            <form class="form hidden" id="create_account">
+                <a class="close_form_btn" href="./index.html">X</a>
+                <h1 class="form_title">Create Account</h1>
+                <div class="form_input_group">
+                    <input type="text" id="first_name" class="form_input required" name="first_name" autofocus placeholder="First Name *">
+                    <div class="form_input_error_message"></div>
+                </div>
+                <div class="form_input_group">
+                    <input type="text" id="last_name" class="form_input required" name="last_name" placeholder="Last Name *">
+                    <div class="form_input_error_message"></div>
+                </div>
+                <div class="form_message form_message_error"></div>
+                <div class="form_input_group">
+                    <input type="text" class="form_input required" id="signup_username" placeholder="Username *">
+                    <div class="form_input_error_message"></div>
+                </div>
+                <div class="form_input_group">
+                    <input type="password" class="form_input required" id="signup_password" placeholder="Password *">
+                    <div class="form_input_error_message"></div>
+                </div>
+                <div class="form_input_group">
+                    <input type="password" class="form_input required" id="signup_confirm_password" placeholder="Confirm Password *">
+                    <div class="form_input_error_message"></div>
+                </div>
+            
+                <button id="create_account_btn" class="form_btn primary_btn" type="submit" disabled>Continue</button>
+                <p class="account_text">Already have an account?</p>
+                <a class="form_link secondary_btn" href="./" id="link_login">Sign in</a>
+            </form>
+        </div>
+    </main>
+    
+
+    
+</body>
+</html>
