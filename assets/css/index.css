@@ -143,10 +143,10 @@ main #homepage .primary_btn_lg {
   border-radius: 40px;
   border: 1px solid #3E3E3E;
   color: #338CFB;
+  cursor: pointer;
   font: 24px/62px 'OpenSans-SemiBold', tahoma, verdana, arial, sans-serif;
   min-width: 470px;
   transition: all 0.21s ease-in-out;
-  cursor: pointer;
 }
 .secondary_btn_lg:hover {
   background-color: rgba(51, 140, 251, 0.1);
