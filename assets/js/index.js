@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     create_account_btn.addEventListener("click", event => {
         event.preventDefault();
-        window.location.href = "/the_wall.html";
+        window.location.href = "../../the_wall.html";
     });
 
     login_form.addEventListener("submit", event => {
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if(login_username === "admin" && login_password === "admin_123"){
             localStorage.setItem('first_name', 'Harold');
             localStorage.setItem('last_name', 'Nocos');
-            window.location.href = "/the_wall.html";
+            window.location.href = "../../the_wall.html";
         }
         else{
             setFormMessage(login_form, "error", "Invalid username/password combination");
