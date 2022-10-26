@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const link_create_account = document.querySelector("#link_create_account");
     const link_login = document.querySelector("#link_login");
 
+    /* When the element is clicked, it will show signup form */
     show_signup_btn.addEventListener("click", event => {
         event.preventDefault();
         login_form.classList.add("hidden");
@@ -15,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
         create_account_form.classList.remove("hidden");
     });
     
+    /* When the element is clicked, it will show login form */
     show_login_btn.addEventListener("click", event => {
         event.preventDefault();
         login_form.classList.remove("hidden");
@@ -22,23 +24,28 @@ document.addEventListener("DOMContentLoaded", () => {
         create_account_form.classList.add("hidden");
     });
 
+    /* When the element is clicked, it will show signup form */
     link_create_account.addEventListener("click", event => {
         login_form.classList.add("hidden");
         create_account_form.classList.remove("hidden");
         event.preventDefault();
     });
     
+    /* When the element is clicked, it will show login form */
     link_login.addEventListener("click", event => {
         event.preventDefault();
         login_form.classList.remove("hidden");
         create_account_form.classList.add("hidden");
     });
     
+    /* When the element is clicked, it will show the walll */
     create_account_btn.addEventListener("click", event => {
         event.preventDefault();
-        window.location.href = "../../the_wall.html";
+        window.location.href = "../views/the_wall.html";
     });
 
+    /* Checking if the username and password is correct. If it is correct, it will redirect to the
+    wall. If it is not correct, it will display an error message. */
     login_form.addEventListener("submit", event => {
         event.preventDefault();
         let form_data = new FormData(document.getElementById("login"));
@@ -48,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if(login_username === "admin" && login_password === "admin_123"){
             localStorage.setItem('first_name', 'Harold');
             localStorage.setItem('last_name', 'Nocos');
-            window.location.href = "../../the_wall.html";
+            window.location.href = "../views/the_wall.html";
         }
         else{
             setFormMessage(login_form, "error", "Invalid username/password combination");
