@@ -164,11 +164,11 @@ body {
   background-color: #FFF;
 }
 nav {
-  display: flex;
-  padding: 40px;
-  justify-content: space-between;
-  column-gap: 24px;
   align-items: center;
+  column-gap: 24px;
+  display: flex;
+  justify-content: space-between;
+  padding: 40px;
 }
 nav #the_wall_logo {
   color: #222222;
@@ -194,36 +194,36 @@ nav a {
 .new_post_wrapper {
   background-color: #F8F8F8;
   border-radius: 20px;
-  min-height: 131px;
   display: block;
-  padding: 16px;
   margin-bottom: 16px;
+  min-height: 131px;
+  padding: 16px;
 }
 .new_post_wrapper .new_post {
-  font: 16px/19px 'OpenSans-Regular', tahoma, verdana, arial, sans-serif;
-  color: #222222;
-  padding: 16px;
   border-radius: 10px;
-  width: 100%;
-  border: none;
-  min-height: 43px;
-  max-height: 160px;
-  min-width: 648px;
-  max-width: 648px;
-  margin-bottom: 16px;
   border-right: 4px solid transparent;
+  border: none;
+  color: #222222;
+  font: 16px/19px 'OpenSans-Regular', tahoma, verdana, arial, sans-serif;
+  margin-bottom: 16px;
+  max-height: 160px;
+  max-width: 648px;
+  min-height: 43px;
+  min-width: 648px;
+  padding: 16px;
+  width: 100%;
 }
 .new_post_wrapper #post_btn {
-  min-width: 88px;
-  min-height: 40px;
-  display: block;
-  margin: 0 0 0 auto;
-  border-radius: 10px;
   background-color: #338CFB;
+  border-radius: 10px;
   border: none;
   color: #FFF;
-  transition: all 0.21s ease-in-out;
   cursor: pointer;
+  display: block;
+  margin: 0 0 0 auto;
+  min-height: 40px;
+  min-width: 88px;
+  transition: all 0.21s ease-in-out;
 }
 .new_post_wrapper #post_btn:hover {
   opacity: 0.8;
@@ -286,11 +286,11 @@ button {
   border-radius: 10px;
   border: none;
   color: #FFF;
+  cursor: pointer;
   line-height: 32px;
   margin-right: 8px;
   padding: 0 8px;
   transition: all 0.21s ease-in-out;
-  cursor: pointer;
 }
 button:hover {
   opacity: 0.8;

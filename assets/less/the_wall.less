@@ -5,11 +5,11 @@ body{
 }
 
 nav{
-    display: flex;
-    padding: 40px;
-    justify-content: space-between;
-    column-gap: 24px;
     align-items: center;
+    column-gap: 24px;
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
     #the_wall_logo{
         img{
             width: 24px;
@@ -28,7 +28,6 @@ nav{
     }
 }
 
-
 .container{
     margin: 0 auto;
     max-width: 712px;
@@ -37,36 +36,36 @@ nav{
 .new_post_wrapper{
     background-color: @bg_the_wall;
     border-radius: 20px;
-    min-height: 131px;
     display: block;
-    padding: 16px;
     margin-bottom: 16px;
+    min-height: 131px;
+    padding: 16px;
     
     .new_post{
-        font: 16px/19px 'OpenSans-Regular', tahoma, verdana, arial, sans-serif;
-        color: @the_wall_black;
-        padding: 16px;
         border-radius: 10px;
-        width: 100%;
-        border: none;
-        min-height: 43px;
-        max-height: 160px;
-        min-width: 648px;
-        max-width: 648px;
-        margin-bottom: 16px;
         border-right: 4px solid transparent;
+        border: none;
+        color: @the_wall_black;
+        font: 16px/19px 'OpenSans-Regular', tahoma, verdana, arial, sans-serif;
+        margin-bottom: 16px;
+        max-height: 160px;
+        max-width: 648px;
+        min-height: 43px;
+        min-width: 648px;
+        padding: 16px;
+        width: 100%;
     }
     #post_btn{
-        min-width: 88px;
-        min-height: 40px;
-        display: block;
-        margin: 0 0 0 auto;
-        border-radius: 10px;
         background-color: @the_wall_blue;
+        border-radius: 10px;
         border: none;
         color: @the_wall_white;
-        transition: all 0.21s ease-in-out;
         cursor: pointer;
+        display: block;
+        margin: 0 0 0 auto;
+        min-height: 40px;
+        min-width: 88px;
+        transition: all 0.21s ease-in-out;
         &:hover{
             opacity: 0.8;
         }
@@ -136,11 +135,11 @@ button{
     border-radius: 10px;
     border: none;
     color: @the_wall_white;
+    cursor: pointer;
     line-height: 32px;
     margin-right: 8px;
     padding: 0 8px;
     transition: all 0.21s ease-in-out;
-    cursor: pointer;
     &:hover {
         opacity: 0.8;
     }
