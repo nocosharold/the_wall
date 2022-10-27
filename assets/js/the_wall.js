@@ -1,7 +1,15 @@
 
+
 document.addEventListener("DOMContentLoaded", () => {
     const post_btn = document.getElementById("post_btn");
     const all_comments = document.getElementById("all_comments");
+    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    let date_now = new Date();
+    let month = months[date_now.getMonth()];
+    let date = date_now.getDate();
+    let year = date_now.getFullYear();
+    let date_value = month + " " + date + ", " + year;
+    document.querySelector("#date").innerHTML = date_value;
     
     post_btn.addEventListener("click", (event) => { addComment(event) });                               /* When clicked, the addComment function is called. */
     all_comments.addEventListener("click", (event) => { commentControls(event) });                      /* When clicked, the function commentControls is called. */
@@ -17,20 +25,22 @@ document.addEventListener("DOMContentLoaded", () => {
 * @author Harold
 */
 function addComment(event) {
+    event.preventDefault();
     /* When clicked. It creates a new comment and adds it to the wall. */
     if(!(document.querySelector(".new_post").value.trim().length === 0)) {
         const comment_container = document.getElementById("all_comments");
         const post_wrapper = document.querySelector(".post_wrapper.hidden").cloneNode(true);
         const user_name_text = document.getElementById("profile_name").textContent;
         const new_post_text = document.querySelector(".new_post");
+        const date_post = document.querySelector("#date").textContent;
+        const user_time_stamp = user_name_text + " &bull; " + date_post;
 
         post_wrapper.setAttribute("class", "post_wrapper");
-        post_wrapper.querySelector(".user_name").innerHTML = user_name_text;
+        post_wrapper.querySelector(".user_name").innerHTML = user_time_stamp;
         post_wrapper.querySelector("p").innerHTML = new_post_text.value;
         new_post_text.value = "";
         comment_container.appendChild(post_wrapper);
         
-        event.preventDefault();
         setOnLocalStorage();
     }
 }
@@ -42,15 +52,18 @@ function addComment(event) {
 * @author Harold
 */
 function addReply(event) {
+    event.preventDefault();
     /* When the add reply button is clicked. It adds the reply to the comment. */
     if(!(document.querySelector(".add_reply_comment").value.trim().length === 0)) {
         const post_container = event.target.closest(".post_wrapper");
         const reply_wrapper = document.querySelector(".reply_wrapper.hidden").cloneNode(true);
         const user_name_text = document.getElementById("profile_name").textContent;
         const reply_comment_text = document.querySelector(".add_reply_comment").value;
+        const date_post = document.querySelector("#date").textContent;
+        const user_time_stamp = user_name_text + " &bull; " + date_post;
 
         reply_wrapper.setAttribute("class", "reply_wrapper");
-        reply_wrapper.querySelector(".user_name").innerHTML = user_name_text;
+        reply_wrapper.querySelector(".user_name").innerHTML = user_time_stamp;
         reply_wrapper.querySelector("p").innerHTML = reply_comment_text;
         post_container.appendChild(reply_wrapper);
         event.target.parentElement.remove();

@@ -161,7 +161,7 @@ function validateSignupFields(inputElement){
         equal, it will set an error message on the input element and add the class "required" to
         the input element. */
         if(event.target.id === "signup_confirm_password" && document.getElementById("signup_confirm_password").value != document.getElementById("signup_password").value) {
-            setInputError(inputElement, "Password doesn&rsquo;t match");
+            setInputError(inputElement, "Password doesn't match");
             event.target.classList.add("required");
         }
         /* Removing the class "required" from the input element. */
