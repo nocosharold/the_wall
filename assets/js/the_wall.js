@@ -3,17 +3,12 @@
 document.addEventListener("DOMContentLoaded", () => {
     const post_btn = document.getElementById("post_btn");
     const all_comments = document.getElementById("all_comments");
-    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    let date_now = new Date();
-    let month = months[date_now.getMonth()];
-    let date = date_now.getDate();
-    let year = date_now.getFullYear();
-    let date_value = month + " " + date + ", " + year;
-    document.querySelector("#date").innerHTML = date_value;
+    
     
     post_btn.addEventListener("click", (event) => { addComment(event) });                               /* When clicked, the addComment function is called. */
     all_comments.addEventListener("click", (event) => { commentControls(event) });                      /* When clicked, the function commentControls is called. */
 
+    setCurrentDate();
     getOnLocalStorage();
     getNameOnLocalStorage();
 });
@@ -27,7 +22,10 @@ document.addEventListener("DOMContentLoaded", () => {
 function addComment(event) {
     event.preventDefault();
     /* When clicked. It creates a new comment and adds it to the wall. */
-    if(!(document.querySelector(".new_post").value.trim().length === 0)) {
+    if(document.querySelector(".new_post").value.trim().length === 0) {
+        /* Do Nothing */
+    }
+    else{
         const comment_container = document.getElementById("all_comments");
         const post_wrapper = document.querySelector(".post_wrapper.hidden").cloneNode(true);
         const user_name_text = document.getElementById("profile_name").textContent;
@@ -54,7 +52,10 @@ function addComment(event) {
 function addReply(event) {
     event.preventDefault();
     /* When the add reply button is clicked. It adds the reply to the comment. */
-    if(!(document.querySelector(".add_reply_comment").value.trim().length === 0)) {
+    if(document.querySelector(".add_reply_comment").value.trim().length === 0) {
+        /* Do Nothing */
+    }
+    else{
         const post_container = event.target.closest(".post_wrapper");
         const reply_wrapper = document.querySelector(".reply_wrapper.hidden").cloneNode(true);
         const user_name_text = document.getElementById("profile_name").textContent;
@@ -119,8 +120,8 @@ function commentControls(event){
 * Last Updated Date: October 26, 2022
 * @author Harold
 */
-function hasClass(elem, className) {
-    return elem.classList.contains(className);
+function hasClass(element, class_name) {
+    return element.classList.contains(class_name);
 }
 
 /**
@@ -143,7 +144,11 @@ function getOnLocalStorage() {
     let wall_data = localStorage.getItem("template");
     let all_comments = document.getElementById( "all_comments");
 
-    if(!(wall_data === null)){
+    if(wall_data === null){
+        /* Do Nothing */
+    }
+    /* Inserting the data from localStorage into the DOM. */
+    else{
         all_comments.insertAdjacentHTML( "beforeend", wall_data );
     }
 }
@@ -159,7 +164,27 @@ function getNameOnLocalStorage() {
     let last_name = localStorage.getItem("last_name");
     let profile_name = document.getElementById( "profile_name");
 
-    if(!(profile_name === null)){
+    if(profile_name === null){
+        /* Do Nothing */
+    }
+    /* Inserting the first and last name into the element with the id of profile_name. */
+    else{
         profile_name.insertAdjacentHTML( "beforeend", first_name + " " + last_name );
     }
+}
+
+/**
+* DOCU: It gets the current date and sets the value of the date element to the current date. <br>
+* Triggered: on page load <br>
+* Last Updated Date: October 26, 2022
+* @author Harold
+*/
+function setCurrentDate(){
+    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    let date_now = new Date();
+    let month = months[date_now.getMonth()];
+    let date = date_now.getDate();
+    let year = date_now.getFullYear();
+    let date_value = month + " " + date + ", " + year;
+    document.querySelector("#date").innerHTML = date_value;
 }
