@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const link_create_account = document.querySelector("#link_create_account");
     const link_login = document.querySelector("#link_login");
     const login_form = document.querySelector("#login");
-    const form_input = document.querySelectorAll(".form_input")
+    const form_input = document.querySelectorAll(".form_input");
     
     show_signup_btn.addEventListener("click", (event) => { homepageShowSignupForm(event) });                            /* When clicked, from homepage it will show signup form */
     show_login_btn.addEventListener("click", (event) => { homepageShowLoginForm(event) });                              /* When clicked, from homepage it will show login form */
