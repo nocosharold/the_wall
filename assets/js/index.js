@@ -123,10 +123,10 @@ function submitLoginForm(event){
 function validateSignupFields(inputElement){
     /* This will validate fields on blur event */
     inputElement.addEventListener("blur", event => {
-        /* Checking if the value of the input element with the id "first_name" or "last_name" is
-        not equal to the regular expression "name_format". If it is not equal, it will set an
-        error message on the input element and add the class "required" to the input element. */
-        if(event.target.id === "first_name" && REGULAR_EXPRESSIONS.name_format.test(event.target.value) || event.target.id === "last_name" && REGULAR_EXPRESSIONS.name_format.test(event.target.value)) {
+        /* Checking if the value of the input element with the id "first_name" or "last_name" is not
+        equal to the regular expression "name_format". If it is not equal, it will set an error
+        message on the input element and add the class "required" to the input element. */
+        if(event.target.id === "first_name" && !(REGULAR_EXPRESSIONS.name_format.test(event.target.value)) || event.target.id === "last_name" && !(REGULAR_EXPRESSIONS.name_format.test(event.target.value))) {
             setInputError(inputElement, "Special Characters and numbers are not allowed.");
             event.target.classList.add("required");
         }
