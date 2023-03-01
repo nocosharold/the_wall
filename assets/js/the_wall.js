@@ -1,10 +1,7 @@
-
-
 document.addEventListener("DOMContentLoaded", () => {
     const post_btn = document.getElementById("post_btn");
     const all_comments = document.getElementById("all_comments");
-    
-    
+
     post_btn.addEventListener("click", (event) => { addComment(event) });                               /* When clicked, the addComment function is called. */
     all_comments.addEventListener("click", (event) => { commentControls(event) });                      /* When clicked, the function commentControls is called. */
 
@@ -12,12 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
     getOnLocalStorage();
     getNameOnLocalStorage();
 });
-
-/**
-* DOCU: Creates a new comment and adds it to the wall. <br>
+/*** DOCU: Creates a new comment and adds it to the wall. <br>
 * Triggered: post_btn.addEventListener("click", (event) => { addComment(event) }); <br>
-* Last Updated Date: October 26, 2022
-* @author Harold
 */
 function addComment(event) {
     event.preventDefault();
@@ -42,12 +35,8 @@ function addComment(event) {
         setOnLocalStorage();
     }
 }
-
-/**
-* DOCU: Adds a reply to the comment. <br>
+/*** DOCU: Adds a reply to the comment. <br>
 * Triggered: all_comments.addEventListener("click", (event) => { commentControls(event) }); <br>
-* Last Updated Date: October 26, 2022
-* @author Harold
 */
 function addReply(event) {
     event.preventDefault();
@@ -72,13 +61,8 @@ function addReply(event) {
         setOnLocalStorage();
     }
 }
-
-/**
-* DOCU: It adds a reply to a comment, increments the value of the like button, removes the text area and the buttons, and removes the comment. <br>
-* Triggered: all_comments.addEventListener("click", (event) => { commentControls(event) }); <br>
-* Last Updated Date: October 26, 2022
-* @author Harold
-*/
+/**DOCU: It adds a reply to a comment, increments the value of the like button, removes the text area and the buttons, and removes the comment. <br>
+* Triggered: all_comments.addEventListener("click", (event) => { commentControls(event) }); <br>*/
 function commentControls(event){
     /* When clicked. creates a text area, button to add the reply, cancel button. */
     if(hasClass(event.target, "reply")) {
@@ -113,33 +97,18 @@ function commentControls(event){
         setOnLocalStorage();
     }
 }
-
-/**
-* DOCU: If the class name is found in the class list, return true, otherwise return false. <br>
-* Triggered: all_comments.addEventListener("click", (event) => { commentControls(event) }); <br>
-* Last Updated Date: October 26, 2022
-* @author Harold
-*/
+/** DOCU: If the class name is found in the class list, return true, otherwise return false. <br>
+* Triggered: all_comments.addEventListener("click", (event) => { commentControls(event) }); <br>*/
 function hasClass(element, class_name) {
     return element.classList.contains(class_name);
 }
-
-/**
-* DOCU: It takes the HTML of the div with the id of "all_comments" and stores it in the localStorage object under the key "template". <br>
-* Triggered: all_comments.addEventListener("click", (event) => { commentControls(event) }); <br>
-* Last Updated Date: October 26, 2022
-* @author Harold
-*/
+/**DOCU: It takes the HTML of the div with the id of "all_comments" and stores it in the localStorage object under the key "template". <br>
+* Triggered: all_comments.addEventListener("click", (event) => { commentControls(event) }); <br>*/
 function setOnLocalStorage() {
     localStorage.setItem("template", document.getElementById("all_comments").innerHTML);
 }
-
-/**
-* DOCU: If there is data in localStorage, then insert it into the DOM. <br>
-* Triggered: on page load <br>
-* Last Updated Date: October 26, 2022
-* @author Harold
-*/
+/*** DOCU: If there is data in localStorage, then insert it into the DOM. <br>
+* Triggered: on page load <br>*/
 function getOnLocalStorage() {
     let wall_data = localStorage.getItem("template");
     let all_comments = document.getElementById( "all_comments");
@@ -152,13 +121,8 @@ function getOnLocalStorage() {
         all_comments.insertAdjacentHTML( "beforeend", wall_data );
     }
 }
-
-/**
-* DOCU: If the element with the id of profile_name exists, then insert the first and last name into the element <br>
-* Triggered: on page load <br>
-* Last Updated Date: October 26, 2022
-* @author Harold
-*/
+/*** DOCU: If the element with the id of profile_name exists, then insert the first and last name into the element <br>
+* Triggered: on page load <br>*/
 function getNameOnLocalStorage() {
     let first_name = localStorage.getItem("first_name");
     let last_name = localStorage.getItem("last_name");
@@ -172,13 +136,8 @@ function getNameOnLocalStorage() {
         profile_name.insertAdjacentHTML( "beforeend", first_name + " " + last_name );
     }
 }
-
-/**
-* DOCU: It gets the current date and sets the value of the date element to the current date. <br>
-* Triggered: on page load <br>
-* Last Updated Date: October 26, 2022
-* @author Harold
-*/
+/*** DOCU: It gets the current date and sets the value of the date element to the current date. <br>
+* Triggered: on page load <br>*/
 function setCurrentDate(){
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     let date_now = new Date();
